@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,6 +18,11 @@
         
         <h1>${mesfilms}</h1>
         
-        
+        <div>
+            <c:forEach items="${mesfilms}" var="monfilm">${monfilm.titre}<br/></c:forEach>
+        </div>
+        <footer>
+            ${pied}
+        </footer> 
     </body>
 </html>
