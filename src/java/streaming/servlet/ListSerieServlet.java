@@ -14,20 +14,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import streaming.entity.Film;
+import streaming.entity.Serie;
 import streaming.services.FilmService;
+import streaming.services.SerieService;
 
 /**
  *
  * @author admin
  */
-@WebServlet(name = "ListFilmServlet", urlPatterns = {"/lister_films"})//href à placer dans le html
-public class ListFilmServlet extends HttpServlet {
+@WebServlet(name = "ListSerieServlet", urlPatterns = {"/liste_series"})
+public class ListSerieServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Film> films = new FilmService().lister();
-        req.setAttribute("mesfilms", films);
-        req.setAttribute("pied", "(c)2016 LEL Prod.");
-        req.getRequestDispatcher("liste_film.jsp").forward(req, resp);//nom de la page html cible
+        List<Serie> series = new SerieService().lister();
+        req.setAttribute("messeriess", series);
+        
+        req.getRequestDispatcher("liste_series.jsp").forward(req, resp);//nom de la page html cible
     }
+
+    
+
 }
