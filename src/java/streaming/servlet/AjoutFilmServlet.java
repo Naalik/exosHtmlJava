@@ -7,30 +7,27 @@ package streaming.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import streaming.entity.Film;
-import streaming.entity.Serie;
-import streaming.services.FilmService;
-import streaming.services.SerieService;
 
 /**
  *
  * @author admin
  */
-@WebServlet(name = "ListSerieServlet", urlPatterns = {"/lister_series"})
-public class ListSerieServlet extends HttpServlet {
+@WebServlet(name = "AjoutFilmServlet", urlPatterns = {"/ajout_film"})
+public class AjoutFilmServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Serie> series = new SerieService().lister();
-        req.setAttribute("messeries", series);
+        req.getRequestDispatcher("ajout_film.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        req.getRequestDispatcher("liste_serie.jsp").forward(req, resp);//nom de la page html cible
     }
 
     

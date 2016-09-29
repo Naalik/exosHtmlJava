@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,7 @@
     <body>
         <div class="menu"><c:import url="_MENU.jsp"></c:import></div>
         <div class="titre"><h1>Tu m'veux quoi, lel ?</h1></div>
-        <div class="contenu"></div>
+        <div class="contenu"><c:forEach items="${messeries}" var="maserie">${maserie.titre}<br/></c:forEach></div>
         <div class="pied"><c:import url="_PIED.jsp"></c:import></div>
     </body>
 </html>

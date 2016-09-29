@@ -12,11 +12,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <c:import url="_HEAD.jsp"></c:import>
-    </head>
-    <body>
-        <div class="menu"><c:import url="_MENU.jsp"></c:import></div>
-        <div class="titre"><h1>Tu m'veux quoi, lel ?</h1></div>
-        <div class="contenu"><c:forEach items="${mesfilms}" var="monfilm">${monfilm.titre}<br/></c:forEach></div>
+        </head>
+        <body>
+            <div class="menu"><c:import url="_MENU.jsp"></c:import></div>
+            <div class="titre"><h1>Tu m'veux quoi, lel ?</h1></div>
+            <div class="contenu">
+            <c:forEach items="${mesfilms}" var="monfilm">
+                ${monfilm.titre}<br/>
+            </c:forEach>
+        </div>
         <div class="pied"><c:import url="_PIED.jsp"></c:import></div>
     </body>
 </html>
