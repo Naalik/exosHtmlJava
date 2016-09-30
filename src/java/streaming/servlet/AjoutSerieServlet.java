@@ -25,12 +25,12 @@ import streaming.services.SerieService;
 public class AjoutSerieServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("ajout_serie.jsp").forward(req, resp);
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Serie serie = new Serie();
         serie.setTitre(req.getParameter("titre"));
         serie.setSynopsis(req.getParameter("synopsis"));
