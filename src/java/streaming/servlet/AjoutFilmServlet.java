@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import streaming.entity.Film;
+import streaming.services.FilmService;
 
 /**
  *
@@ -27,7 +29,13 @@ public class AjoutFilmServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
+        Film film = new Film();
+        film.setTitre(req.getParameter("titre"));
+        film.setSynopsis(req.getParameter("synopsis"));
+        film.setAnnee(Integer.valueOf(req.getParameter("annee")));
+        film.setDuree(Integer.valueOf(req.getParameter("duree")));
+        new FilmService().ajouter(film);
+        resp.sendRedirect("lister_films");
     }
 
     
